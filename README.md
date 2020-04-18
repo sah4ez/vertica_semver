@@ -15,6 +15,21 @@ cp ./PythonSemverCompare.sql /opt/vertica/sdk
 
 Execute on server this script `./PythonSemverCompare.sql`.
 
+# Grant privileges on function
+
+For new user need grant privileges like:
+
+```sql
+GRANT EXECUTE ON FUNCTION myzeroifnull semverCompare(x1 varchar, x2 varchar, x3 varchar) TO <USER1>, <USER2>, <USER3>;
+```
+
+or
+```sql
+GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA public TO <USER>;
+```
+
+For details see [there](https://www.vertica.com/docs/9.2.x/HTML/Content/Authoring/SQLReferenceManual/Statements/GRANT/GRANTUserDefinedExtension.htm)
+
 # Usage
 
 Now you can use semver compare with include boundary values.
